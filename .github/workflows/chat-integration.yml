@@ -16,7 +16,7 @@ jobs:
       if: ${{ failure() }}
       run: |
         JOB_URL="${GITHUB_SERVER_URL}/${GITHUB_REPOSITORY}/actions/runs/${GITHUB_RUN_ID}"
-        MESSAGE="🚨 Android Firebase Distribution workflow failed! Check details here: ${JOB_URL}"
+        MESSAGE="🚨🚨 *Android Firebase Distribution failed!* 🚨🚨\nPlease, check the <failed run|${JOB_URL}> for more details "
         curl -X POST -H "Content-Type: application/json" \
           -d "{\"text\": \"${MESSAGE}\"}" \
           ${{ secrets.GOOGLE_CHAT_WEBHOOK_URL }}
