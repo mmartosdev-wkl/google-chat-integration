@@ -1,8 +1,7 @@
-name: Android Firebase distribution
+name: Google Chat Integration
 
 on:
   workflow_dispatch:
-
 
 jobs:
   char-integration:
@@ -17,7 +16,7 @@ jobs:
       if: ${{ failure() }}
       run: |
         JOB_URL="${GITHUB_SERVER_URL}/${GITHUB_REPOSITORY}/actions/runs/${GITHUB_RUN_ID}"
-        MESSAGE="🚨Android Firebase Distribution workflow failed! Check details here: ${JOB_URL}"
+        MESSAGE="🚨 Android Firebase Distribution workflow failed! Check details here: ${JOB_URL}"
         curl -X POST -H "Content-Type: application/json" \
           -d '{"text": \"${MESSAGE}\"}' \
           ${{ secrets.GOOGLE_CHAT_WEBHOOK_URL }}
