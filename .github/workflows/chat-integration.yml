@@ -16,9 +16,7 @@ jobs:
       if: ${{ failure() }}
       run: |
         JOB_URL="${GITHUB_SERVER_URL}/${GITHUB_REPOSITORY}/actions/runs/${GITHUB_RUN_ID}"
-        TEXT="🚨🚨 *Android Firebase Distribution failed!* 🚨🚨\nPlease, check the failed run for more details."
-        FORMATTED_TEXT="🚨🚨 *Android Firebase Distribution failed!* 🚨🚨\nPlease, check the <${JOB_URL}|failed run> for more details."
-
+        TEXT="🚨🚨 *Android Firebase Distribution failed!* 🚨🚨\nPlease, check the <${JOB_URL}|failed run> for more details."
         curl -X POST -H "Content-Type: application/json" \
-          -d "{\"text\": \"${TEXT}\", \"formattedText\": \"${FORMATTED_TEXT}\"}" \
+          -d "{\"text\": \"${TEXT}\"}" \
           ${{ secrets.GOOGLE_CHAT_WEBHOOK_URL }}
