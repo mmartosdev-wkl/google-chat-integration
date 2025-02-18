@@ -19,4 +19,4 @@ jobs:
         MESSAGE="🚨 Android Firebase Distribution workflow failed! Check details here: ${JOB_URL}"
         curl -X POST -H "Content-Type: application/json" \
           -d '{"text": "Hello!"}' \
-          ${{ secrets.GOOGLE_CHAT_WEBHOOK_URL }}
+          https://chat.googleapis.com/v1/spaces/AAAAhNrWe0o/messages\?key\=AIzaSyDdI0hCZtE6vySjMm-WEfRq3CPzqKqqsHI\&token\=5xngxYMhjebUVNW8Le37hPDu3PdMogzo2BBxH2rbt68
